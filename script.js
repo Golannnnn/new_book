@@ -1,5 +1,7 @@
 let form = document.querySelector('form');
 let container = document.querySelector('.book-container');
+let newBookButton = document.querySelector('.add-book-button');
+let closeFormButton = document.querySelector('.close-form-button');
 
 let myLibrary = [];
 
@@ -68,4 +70,16 @@ container.addEventListener('click', event => {
             myLibrary[event.target.parentNode.dataset.index].read = true;
         }
     }
+});
+
+newBookButton.addEventListener('click', function() {
+    newBookButton.style.display = "none";
+    form.style.display = "block";
+    closeFormButton.style.display = "block";
+});
+
+closeFormButton.addEventListener('click', function() {
+    closeFormButton.style.display = "none";
+    form.style.display = "none";
+    newBookButton.style.display = "block";
 });

@@ -1,0 +1,11 @@
+.add-book-button {
+    display: block;
+}
+
+form {
+    display: none;
+}
+
+.close-form-button {
+    display: none;
+}
