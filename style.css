@@ -6,12 +6,30 @@
     padding: 0;
 }
 
+:root {
+    --header-color: white;
+    --header-text: black;
+    --button-bg: white;
+    --button-border: black;
+    --button-text: black;
+}
+
 button,
 input[type=submit],
 input[type=button] {
-    background-color: #d1d1e9;
-    border: 1px solid black;
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    color: var(--button-text);
     padding: 5px;
+    font-weight: bold;
+}
+
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+    background-color: var(--button-text);
+    border: 1px solid var(--button-text);
+    color: var(--button-bg);
 }
 
 header {
@@ -20,7 +38,9 @@ header {
     justify-content: space-between;
     align-content: center;
     align-items: center;
-
+    background-color: var(--header-color);
+    color: var(--header-text);
+    /* border-bottom: 1px solid lightgray; */
     padding: 10px;
 }
 
@@ -34,9 +54,15 @@ header p {
     padding: 10px;
 }
 
+.add-book-button:disabled {
+    visibility: hidden;
+}
+
 form {
     display: none;
-
+    background-color: var(--header-color);
+    color: var(--header-text);
+    border-bottom: 1px solid lightgray;
     padding: 10px;
 }
 
@@ -54,12 +80,17 @@ form {
     flex: 3;
 }
 
+input[type=text],
+input[type=number] {
+    border: 1px solid lightgray;
+}
+
 input[type=submit] {
-    padding-right: 5px;
+    padding-right: 15px;
 }
 
 input[type=button] {
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 .card-container {
