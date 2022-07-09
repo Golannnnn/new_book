@@ -7,10 +7,10 @@
 }
 
 :root {
-    --header-color: white;
+    --header-bg: white;
     --header-text: black;
     --button-bg: white;
-    --button-border: black;
+    --button-border: grey;
     --button-text: black;
 }
 
@@ -38,7 +38,7 @@ header {
     justify-content: space-between;
     align-content: center;
     align-items: center;
-    background-color: var(--header-color);
+    background-color: var(--header-bg);
     color: var(--header-text);
     /* border-bottom: 1px solid lightgray; */
     padding: 10px;
@@ -60,9 +60,8 @@ header p {
 
 form {
     display: none;
-    background-color: var(--header-color);
+    background-color: var(--header-bg);
     color: var(--header-text);
-    border-bottom: 1px solid lightgray;
     padding: 10px;
 }
 
@@ -97,9 +96,9 @@ input[type=button] {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border-bottom: 1px solid gray;
-    padding: 10px 10px 20px 10px;
-    margin: 10px;
+    padding: 10px;
+    margin: 10px 10px 20px 10px;
+    background-color: rgb(253, 219, 178);
 }
 
 .book-image {
