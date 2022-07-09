@@ -56,12 +56,12 @@ function createDiv() {
 
     authorParagraph = document.createElement("p");
     authorParagraph.classList.add('text-paragraph');
-    authorParagraph.innerText = `${myLibrary[lastIndex].author}`;
+    authorParagraph.innerText = `by ${myLibrary[lastIndex].author}`;
     textContainer.appendChild(authorParagraph);
 
     pagesParagraph = document.createElement("p");
     pagesParagraph.classList.add('text-paragraph');
-    pagesParagraph.innerText = `${myLibrary[lastIndex].pages}`;
+    pagesParagraph.innerText = `${myLibrary[lastIndex].pages} pages`;
     textContainer.appendChild(pagesParagraph);
 
     buttonContainer = document.createElement("div");

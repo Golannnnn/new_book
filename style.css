@@ -6,8 +6,12 @@
     padding: 0;
 }
 
-button {
-
+button,
+input[type=submit],
+input[type=button] {
+    background-color: #d1d1e9;
+    border: 1px solid black;
+    padding: 5px;
 }
 
 header {
@@ -16,6 +20,8 @@ header {
     justify-content: space-between;
     align-content: center;
     align-items: center;
+
+    padding: 10px;
 }
 
 header p {
@@ -30,6 +36,8 @@ header p {
 
 form {
     display: none;
+
+    padding: 10px;
 }
 
 .form-row {
@@ -46,10 +54,12 @@ form {
     flex: 3;
 }
 
-#submit,
-.close-form-button {
-    background-color: lightgray;
-    padding: 5px;
+input[type=submit] {
+    padding-right: 5px;
+}
+
+input[type=button] {
+    margin-left: 5px;
 }
 
 .card-container {
@@ -57,7 +67,7 @@ form {
     flex-direction: row;
     justify-content: flex-start;
     border-bottom: 1px solid gray;
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
     margin: 10px;
 }
 
@@ -79,18 +89,19 @@ form {
 }
 
 .text-paragraph {
-    padding: 5px;
+    padding: 0px 5px 10px 5px;
     margin: 0;
+}
+
+.text-paragraph:first-child {
+    font-weight: bold;
 }
 
 .button-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.button-container > button {
-    padding: 6px;
+    padding-left: 5px;
 }
 
 
