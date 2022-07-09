@@ -1,11 +1,99 @@
+*,
+*:before,
+*:after { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+button {
+
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+header p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .add-book-button {
     display: block;
+    padding: 10px;
 }
 
 form {
     display: none;
 }
 
-.close-form-button {
-    display: none;
+.form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px;
 }
+
+.form-row > label {
+    flex: 1;
+}
+
+.form-row > input {
+    flex: 3;
+}
+
+#submit,
+.close-form-button {
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+.book-image {
+    flex: 1;
+    height: 100px;
+    background-image: url(./images/cover.jpeg); 
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position: top center;
+    margin-right: 5px;
+}
+
+.text-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+}
+
+.text-paragraph {
+    padding: 5px;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-container > button {
+    padding: 6px;
+}
+
+
+/*
+
+*/

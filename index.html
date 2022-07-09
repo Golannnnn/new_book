@@ -8,24 +8,38 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <section>
+    <header>
+        <p>Library</p>
         <button class="add-book-button">Add new book</button>
+    </header>
+
+    <section>
         <form action="#" onsubmit="submitForm();return false">
-            <label for="title">Title:</label>
-            <input type="text" name="title" class="title" required>
+            <div class="form-row">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="title" maxlength="150" required>
+            </div>
 
-            <label for="author">Author:</label>
-            <input type="text" name="author" class="author" required>
+            <div class="form-row">  
+                <label for="author">Author:</label>
+                <input type="text" name="author" class="author" required>
+            </div>
 
-            <label for="pages">Pages:</label>
-            <input type="number" name="pages" class="pages" required>
+            <div class="form-row">    
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" class="pages" required>
+            </div>
 
-            <label for="checkbox">Read:</label>
-            <input type="checkbox" class="checkbox">
+            <div class="form-row">   
+                <label for="checkbox">Read: </label>
+                <input type="checkbox" class="checkbox">
+            </div>
 
-            <input type="submit" id="submit">
+            <div class="form-row">
+                <input type="submit" id="submit">
+                <input type="button" class="close-form-button" value="Close">
+            </div>
         </form>
-        <button class="close-form-button">Close</button>
     </section>
 
     <section class="book-container"></section>

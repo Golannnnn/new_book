@@ -1,9 +1,26 @@
-let form = document.querySelector('form');
-let container = document.querySelector('.book-container');
-let newBookButton = document.querySelector('.add-book-button');
-let closeFormButton = document.querySelector('.close-form-button');
+const newBookButton = document.querySelector('.add-book-button');
+const form = document.querySelector('form');
+const title = document.querySelector(".title");
+const author = document.querySelector(".author");
+const pages = document.querySelector(".pages");
+const read = document.querySelector('.checkbox');
+const closeFormButton = document.querySelector('.close-form-button');
+const container = document.querySelector('.book-container');
 
-let myLibrary = [];
+const myLibrary = [];
+
+newBookButton.addEventListener('click', function() {
+    form.style.display = "block";
+    closeFormButton.style.display = "block";
+    newBookButton.disabled = true;
+});
+
+closeFormButton.addEventListener('click', function() {
+    closeFormButton.style.display = "none";
+    form.style.display = "none";
+    newBookButton.style.display = "block";
+    newBookButton.disabled = false;
+});
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -16,36 +33,68 @@ function addBookToLibrary(array, book) {
     return array.push(book);
 }
 
-function submitForm() {
+function createDiv() {
+    lastValue = myLibrary[myLibrary.length - 1];
+    lastIndex = myLibrary.indexOf(lastValue);
 
-    let title = document.querySelector(".title").value;
-    let author = document.querySelector(".author").value;
-    let pages = document.querySelector(".pages").value;
-    let read = document.querySelector('.checkbox').checked;
-    addBookToLibrary(myLibrary, new Book(title, author, pages, read));
+    cardContainer = document.createElement("div");
+    cardContainer.dataset.index = lastIndex;
+    cardContainer.classList.add('card-container');
 
-    let lastValue = myLibrary[myLibrary.length - 1];
-    let lastIndex = myLibrary.indexOf(lastValue);
+    bookImage = document.createElement("div");
+    bookImage.classList.add('book-image');
+    cardContainer.appendChild(bookImage);
 
-    let bookDiv = document.createElement("div");
-    bookDiv.dataset.index = lastIndex;
-    bookDiv.innerHTML = `Title: ${myLibrary[lastIndex].title} <br> Author: ${myLibrary[lastIndex].author} <br> Pages: ${myLibrary[lastIndex].pages} <br> `;
-    container.appendChild(bookDiv);
+    textContainer = document.createElement("div");
+    textContainer.classList.add('text-container');
+    cardContainer.appendChild(textContainer);
 
-    let removeButton = document.createElement("button");
-    removeButton.classList.add("remove-button");
-    removeButton.innerText = 'Remove';
-    bookDiv.appendChild(removeButton);
+    titleParagraph = document.createElement("p");
+    titleParagraph.classList.add('text-paragraph');
+    titleParagraph.innerText = `${myLibrary[lastIndex].title}`;
+    textContainer.appendChild(titleParagraph);
 
-    let readButton = document.createElement("button");
+    authorParagraph = document.createElement("p");
+    authorParagraph.classList.add('text-paragraph');
+    authorParagraph.innerText = `${myLibrary[lastIndex].author}`;
+    textContainer.appendChild(authorParagraph);
+
+    pagesParagraph = document.createElement("p");
+    pagesParagraph.classList.add('text-paragraph');
+    pagesParagraph.innerText = `${myLibrary[lastIndex].pages}`;
+    textContainer.appendChild(pagesParagraph);
+
+    buttonContainer = document.createElement("div");
+    buttonContainer.classList.add('button-container');
+    textContainer.appendChild(buttonContainer);
+
+    container.appendChild(cardContainer);
+}
+
+function createReadButton() {
+    readButton = document.createElement("button");
     readButton.classList.add("read-button");
-    if (read === true) {
+    if (read.checked === true) {
         readButton.innerText = 'Read';
-    } else {
+    } else if (read.checked === false) {
         readButton.innerText = 'Not read';
     }
-    bookDiv.appendChild(readButton);
+    buttonContainer.appendChild(readButton);
+}
 
+function createRemoveButton() {
+    removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
+    removeButton.innerText = 'Remove';
+    buttonContainer.appendChild(removeButton);
+}
+
+
+function submitForm() {
+    addBookToLibrary(myLibrary, new Book(title.value, author.value, pages.value, read.checked));
+    createDiv();
+    createReadButton();
+    createRemoveButton();
     form.reset();
 }
 
@@ -56,30 +105,18 @@ function divLoop() {
 
 container.addEventListener('click', event => {
     if (event.target.classList.contains('remove-button')) {
-        myLibrary.splice(event.target.parentNode.dataset.index, 1);
-        event.target.parentNode.remove();
+        myLibrary.splice(event.target.parentNode.parentNode.parentNode.dataset.index, 1);
+        event.target.parentNode.parentNode.parentNode.remove();
 
         divLoop();
 
     } else if (event.target.classList.contains('read-button')) {
         if (event.target.innerText === 'Read') {
             event.target.innerText = 'Not read';
-            myLibrary[event.target.parentNode.dataset.index].read = false;
+            myLibrary[event.target.parentNode.parentNode.parentNode.dataset.index].read = false;
         } else {
             event.target.innerText = 'Read';
-            myLibrary[event.target.parentNode.dataset.index].read = true;
+            myLibrary[event.target.parentNode.parentNode.parentNode.dataset.index].read = true;
         }
     }
-});
-
-newBookButton.addEventListener('click', function() {
-    newBookButton.style.display = "none";
-    form.style.display = "block";
-    closeFormButton.style.display = "block";
-});
-
-closeFormButton.addEventListener('click', function() {
-    closeFormButton.style.display = "none";
-    form.style.display = "none";
-    newBookButton.style.display = "block";
 });
