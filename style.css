@@ -12,7 +12,11 @@
     --button-bg: white;
     --button-border: grey;
     --button-text: black;
-    --card-bg: rgb(253, 219, 178);;
+    --card-bg: rgb(253, 219, 178);
+}
+
+body { 
+    min-height: 100vh; 
 }
 
 button,
@@ -26,11 +30,34 @@ input[type=button] {
 }
 
 button:hover,
-input[type=submit]:hover,
-input[type=button]:hover {
+input[type=submit]:hover {
     background-color: var(--button-text);
     border: 1px solid var(--button-text);
     color: var(--button-bg);
+}
+
+.read {
+    background-color: lightgreen;
+    border: 1px solid lightgreen;
+    color: var(--button-text);
+}
+
+.not-read {
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    color: var(--button-text);
+}
+
+.read:hover {
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    color: var(--button-text);
+}
+
+.not-read:hover {
+    background-color: lightgreen;
+    border: 1px solid lightgreen;
+    color: var(--button-text);
 }
 
 header {
@@ -66,6 +93,7 @@ form {
     background-color: var(--header-bg);
     color: var(--header-text);
     padding: 10px;
+    margin: 10px;
 }
 
 .form-row {
@@ -140,7 +168,6 @@ input[type=button] {
 
 @media only screen and (min-width: 574px) {
     .book-container {
-
         columns: 6 190px;
         column-gap: 1rem;
         margin-right: 20px;
@@ -159,7 +186,7 @@ input[type=button] {
     }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 769px) {
     .book-container {
         columns: 6 200px;
         column-gap: 1rem;
@@ -187,7 +214,3 @@ input[type=button] {
         width: 30%;
     }
 }
-
-/*
-
-*/

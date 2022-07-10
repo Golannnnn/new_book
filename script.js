@@ -76,8 +76,10 @@ function createReadButton() {
     readButton.classList.add("read-button");
     if (read.checked === true) {
         readButton.innerText = 'Read';
+        readButton.classList.add("read");
     } else if (read.checked === false) {
         readButton.innerText = 'Not read';
+        readButton.classList.add("not-read");
     }
     buttonContainer.appendChild(readButton);
 }
@@ -114,9 +116,13 @@ container.addEventListener('click', event => {
         if (event.target.innerText === 'Read') {
             event.target.innerText = 'Not read';
             myLibrary[event.target.parentNode.parentNode.parentNode.dataset.index].read = false;
+            event.target.classList.add("not-read");
+            event.target.classList.remove("read");
         } else {
             event.target.innerText = 'Read';
             myLibrary[event.target.parentNode.parentNode.parentNode.dataset.index].read = true;
+            event.target.classList.add("read");
+            event.target.classList.remove("not-read");
         }
     }
 });
